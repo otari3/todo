@@ -5,19 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NavForBoardsComponent } from './navForBoards/nav-for-boards/nav-for-boards.component';
+import { ModalForBoardComponent } from './addingAndEdtingNewBoard/modal-for-board/modal-for-board.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavForBoardsComponent
-  ],
+  declarations: [AppComponent, NavForBoardsComponent, ModalForBoardComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MatDialogModule,
   ],
-  providers: [
-    provideAnimationsAsync('noop')
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideAnimationsAsync('noop')],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

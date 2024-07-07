@@ -1,0 +1,39 @@
+<main>
+  <form>
+    <h1>Add New Board</h1>
+    <div class="maindiv">
+      <div class="inputDivs">
+        <label for="boardName">Board Name</label>
+        <input type="text" placeholder="e.g. Web Design" id="boardName" />
+      </div>
+      <div class="inputDivs">
+        <h2>Board Colums</h2>
+        <ul>
+          <ng-container *ngFor="let items of newColumNames; let i = index">
+            <li *ngIf="!(items.name === '')">
+              <p>{{ items.name }}</p>
+              <svg
+                width="15"
+                height="15"
+                xmlns="http://www.w3.org/2000/svg"
+                class="deleteColume"
+                (click)="removeingCollum(i)"
+              >
+                <g fill="#828FA3" fill-rule="evenodd">
+                  <path d="m12.728 0 2.122 2.122L2.122 14.85 0 12.728z" />
+                  <path d="M0 2.122 2.122 0 14.85 12.728l-2.122 2.122z" />
+                </g>
+              </svg>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      <button class="newCollumn" (click)="onAddNewCollum()" type="button">
+        + Add New Column
+      </button>
+      <button class="newCollumn" type="submit" id="creatNewBoard">
+        Create New Board
+      </button>
+    </div>
+  </form>
+</main>

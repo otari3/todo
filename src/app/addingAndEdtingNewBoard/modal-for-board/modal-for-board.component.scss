@@ -1,0 +1,85 @@
+@import "../../../styles/variables.scss";
+main {
+  width: 480px;
+  height: 500px;
+  background-color: $third-dark;
+  form {
+    padding-top: 30px;
+    padding-left: 32px;
+    h1 {
+      font-family: $font-family;
+      color: #ffff;
+      font-weight: $font-weight-medium;
+      font-size: $heading-XL;
+    }
+    .inputDivs {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      input {
+        width: 416px;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        border: 2px solid #323340;
+        outline: none;
+        padding-left: 8px;
+        color: white;
+        font-family: $font-family;
+      }
+      label {
+        font-family: $font-family;
+        color: #ffff;
+        font-size: $heading-M;
+      }
+      h2 {
+        color: #ffff;
+        font-size: $heading-M;
+      }
+      ul {
+        margin-top: 3px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        li {
+          list-style: none;
+          height: 40px;
+          width: 385px;
+          border: 2px solid #323340;
+          display: flex;
+          justify-self: center;
+          align-items: center;
+          padding-left: 16px;
+          position: relative;
+          p {
+            color: #ffff;
+            font-size: $heading-M;
+          }
+        }
+      }
+    }
+  }
+}
+.deleteColume {
+  position: absolute;
+  right: -31px;
+  cursor: pointer;
+}
+.maindiv {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.newCollumn {
+  width: 416px;
+  height: 40px;
+  border-radius: 20px;
+  color: $primary-purple;
+  cursor: pointer;
+  border: none;
+}
+#creatNewBoard {
+  color: #ffff;
+  background-color: $primary-purple;
+}
