@@ -1,10 +1,15 @@
 <main>
-  <form>
+  <form [formGroup]="board" (ngSubmit)="onCreatNewBoard()">
     <h1>Add New Board</h1>
     <div class="maindiv">
       <div class="inputDivs">
         <label for="boardName">Board Name</label>
-        <input type="text" placeholder="e.g. Web Design" id="boardName" />
+        <input
+          type="text"
+          placeholder="e.g. Web Design"
+          id="boardName"
+          formControlName="name"
+        />
       </div>
       <div class="inputDivs">
         <h2>Board Colums</h2>

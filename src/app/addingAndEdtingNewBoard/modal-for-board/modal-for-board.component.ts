@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { BoardElement, Column } from '../../shared/boardInterface';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BoardStateService } from '../../shared/board-state.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-modal-for-board',
@@ -7,8 +10,13 @@ import { BoardElement, Column } from '../../shared/boardInterface';
   styleUrl: './modal-for-board.component.scss',
 })
 export class ModalForBoardComponent {
+  constructor(private boardState: BoardStateService) {}
   newColumNames: { name?: string }[] = [];
   removedColums: { index: number; name?: string }[] = [];
+  board: FormGroup = new FormGroup({
+    name: new FormControl<string>('', Validators.required),
+  });
+  readonly dialogref = inject(MatDialogRef<ModalForBoardComponent>);
   onAddNewCollum() {
     if (this.removedColums.length > 0) {
       const lastElement = this.removedColums.pop();
@@ -29,5 +37,18 @@ export class ModalForBoardComponent {
       name: this.newColumNames[index].name,
     });
     this.newColumNames[index].name = '';
+  }
+  onCreatNewBoard() {
+    const board: BoardElement = {
+      name: this.board.get('name')?.value,
+      columns: [],
+    };
+    for (let items of this.newColumNames) {
+      if (items.name !== '') {
+        board.columns.push({ name: items.name, tasks: [] });
+      }
+    }
+    this.boardState.sendingBoardToElements.next(board);
+    this.dialogref.close();
   }
 }

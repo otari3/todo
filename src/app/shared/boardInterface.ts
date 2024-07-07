@@ -8,7 +8,7 @@ export interface BoardElement {
 }
 
 export interface Column {
-  name: string;
+  name?: string;
   tasks: Task[];
 }
 
