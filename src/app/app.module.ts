@@ -8,9 +8,12 @@ import { NavForBoardsComponent } from './navForBoards/nav-for-boards/nav-for-boa
 import { ModalForBoardComponent } from './addingAndEdtingNewBoard/modal-for-board/modal-for-board.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BackgroundForCollumsComponent } from './backgroundForCollumns/background-for-collums/background-for-collums.component';
+import { AlltheCollumsComponent } from './backgroundForCollumns/background-for-collums/alltheCollums/allthe-collums/allthe-collums.component';
+import { SinglecollumComponent } from './backgroundForCollumns/background-for-collums/alltheCollums/allthe-collums/singleCollum/singlecollum/singlecollum.component';
 
 @NgModule({
-  declarations: [AppComponent, NavForBoardsComponent, ModalForBoardComponent],
+  declarations: [AppComponent, NavForBoardsComponent, ModalForBoardComponent, BackgroundForCollumsComponent, AlltheCollumsComponent, SinglecollumComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
