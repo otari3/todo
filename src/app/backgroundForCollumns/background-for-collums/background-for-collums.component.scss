@@ -1,0 +1,39 @@
+@import "../../../styles/variables.scss";
+main {
+  width: 1140px;
+  height: 100vh;
+  background-color: $secondary-dark;
+  .addTask {
+    width: 100%;
+    height: 10%;
+    background-color: $third-dark;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 34px;
+    h1 {
+      color: white;
+      font-size: $heading-XL;
+      font-weight: $font-weight-bold;
+    }
+    div {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      button {
+        width: 164px;
+        height: 48px;
+        border: none;
+        background-color: $primary-purple;
+        border-radius: 30px;
+        cursor: pointer;
+        color: white;
+        font-size: $heading-M;
+        font-weight: $font-weight-bold;
+      }
+      svg {
+        cursor: pointer;
+      }
+    }
+  }
+}
