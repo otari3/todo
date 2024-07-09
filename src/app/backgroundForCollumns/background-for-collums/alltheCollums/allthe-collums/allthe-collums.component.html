@@ -1,1 +1,6 @@
-<p>allthe-collums works!</p>
+<div>
+  <app-singlecollum
+    *ngFor="let items of columns"
+    [column]="items"
+  ></app-singlecollum>
+</div>

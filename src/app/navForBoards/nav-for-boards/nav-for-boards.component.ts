@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalForBoardComponent } from '../../addingAndEdtingNewBoard/modal-for-board/modal-for-board.component';
 import { Board, BoardElement } from '../../shared/boardInterface';
 import { BoardStateService } from '../../shared/board-state.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-for-boards',
@@ -10,7 +11,11 @@ import { BoardStateService } from '../../shared/board-state.service';
   styleUrl: './nav-for-boards.component.scss',
 })
 export class NavForBoardsComponent implements OnInit {
-  constructor(private boardState: BoardStateService) {}
+  constructor(
+    private boardState: BoardStateService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {}
   readonly dialog = inject(MatDialog);
   activeBoard!: number;
 
@@ -20,6 +25,7 @@ export class NavForBoardsComponent implements OnInit {
   }
   onBoard(index: number) {
     this.activeBoard = index;
+    this.router.navigate(['/home', index]);
   }
   ngOnInit(): void {
     this.boardState.sendingBoardToElements.subscribe((board: BoardElement) => {
