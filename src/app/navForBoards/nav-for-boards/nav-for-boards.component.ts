@@ -12,10 +12,14 @@ import { BoardStateService } from '../../shared/board-state.service';
 export class NavForBoardsComponent implements OnInit {
   constructor(private boardState: BoardStateService) {}
   readonly dialog = inject(MatDialog);
+  activeBoard!: number;
 
   allBoards: Board = this.boardState.allSharedBoard;
   openAddBoardDialog() {
     this.dialog.open(ModalForBoardComponent);
+  }
+  onBoard(index: number) {
+    this.activeBoard = index;
   }
   ngOnInit(): void {
     this.boardState.sendingBoardToElements.subscribe((board: BoardElement) => {
