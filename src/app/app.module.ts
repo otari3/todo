@@ -11,14 +11,23 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BackgroundForCollumsComponent } from './backgroundForCollumns/background-for-collums/background-for-collums.component';
 import { AlltheCollumsComponent } from './backgroundForCollumns/background-for-collums/alltheCollums/allthe-collums/allthe-collums.component';
 import { SinglecollumComponent } from './backgroundForCollumns/background-for-collums/alltheCollums/allthe-collums/singleCollum/singlecollum/singlecollum.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, NavForBoardsComponent, ModalForBoardComponent, BackgroundForCollumsComponent, AlltheCollumsComponent, SinglecollumComponent],
+  declarations: [
+    AppComponent,
+    NavForBoardsComponent,
+    ModalForBoardComponent,
+    BackgroundForCollumsComponent,
+    AlltheCollumsComponent,
+    SinglecollumComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     MatDialogModule,
+    HttpClientModule,
   ],
   providers: [provideAnimationsAsync('noop')],
   bootstrap: [AppComponent],

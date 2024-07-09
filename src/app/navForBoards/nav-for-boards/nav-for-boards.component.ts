@@ -4,6 +4,7 @@ import { ModalForBoardComponent } from '../../addingAndEdtingNewBoard/modal-for-
 import { Board, BoardElement } from '../../shared/boardInterface';
 import { BoardStateService } from '../../shared/board-state.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-nav-for-boards',
@@ -14,7 +15,8 @@ export class NavForBoardsComponent implements OnInit {
   constructor(
     private boardState: BoardStateService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {}
   readonly dialog = inject(MatDialog);
   activeBoard!: number;
