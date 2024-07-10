@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,14 @@ import { BackgroundForCollumsComponent } from './backgroundForCollumns/backgroun
 import { AlltheCollumsComponent } from './backgroundForCollumns/background-for-collums/alltheCollums/allthe-collums/allthe-collums.component';
 import { SinglecollumComponent } from './backgroundForCollumns/background-for-collums/alltheCollums/allthe-collums/singleCollum/singlecollum/singlecollum.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ApicallsService } from './shared/apicalls.service';
+import { BoardStateService } from './shared/board-state.service';
+
+const initializeApp = (api: ApicallsService) => {
+  return () => {
+    return api.getBoard();
+  };
+};
 
 @NgModule({
   declarations: [
@@ -29,7 +37,15 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     HttpClientModule,
   ],
-  providers: [provideAnimationsAsync('noop')],
+  providers: [
+    provideAnimationsAsync('noop'),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      multi: true,
+      deps: [ApicallsService, BoardStateService],
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
