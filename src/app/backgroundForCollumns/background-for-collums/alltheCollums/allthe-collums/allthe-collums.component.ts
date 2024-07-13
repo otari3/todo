@@ -18,6 +18,7 @@ export class AlltheCollumsComponent implements OnInit {
     this.activtedRouter.params.subscribe((data: Params) => {
       this.columns =
         this.boarderState.allSharedBoard.boards[Number(data['id'])].columns;
+      this.boarderState.corruntLoadedCollumn = this.columns;
     });
   }
 }

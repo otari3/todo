@@ -14,6 +14,7 @@ import { SinglecollumComponent } from './backgroundForCollumns/background-for-co
 import { HttpClientModule } from '@angular/common/http';
 import { ApicallsService } from './shared/apicalls.service';
 import { BoardStateService } from './shared/board-state.service';
+import { CollunModuleComponent } from './addingCollunDialog/collun-module/collun-module.component';
 
 const initializeApp = (api: ApicallsService) => {
   return () => {
@@ -29,6 +30,7 @@ const initializeApp = (api: ApicallsService) => {
     BackgroundForCollumsComponent,
     AlltheCollumsComponent,
     SinglecollumComponent,
+    CollunModuleComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,5 +3,11 @@
     *ngFor="let items of columns"
     [column]="items"
   ></app-singlecollum>
-  <h1 *ngIf="columns.length === 0">THIS IS TEST</h1>
+  <section *ngIf="!(columns.length === 3) && columns.length !== 0">
+    <p>+ New collumn</p>
+  </section>
 </div>
+<section class="emptyBoard" *ngIf="columns.length === 0">
+  <p>This board is empty. Create a new column to get started.</p>
+  <button>+ Add New Column</button>
+</section>
