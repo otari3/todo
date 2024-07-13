@@ -9,5 +9,6 @@ export class BoardStateService {
   sendingBoardToElements = new Subject<BoardElement>();
   allSharedBoard: Board = { boards: [] };
   corruntLoadedCollumn!: Column[];
+  sendingColumn = new Subject<Column>();
   constructor() {}
 }

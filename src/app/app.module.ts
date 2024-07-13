@@ -7,7 +7,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { NavForBoardsComponent } from './navForBoards/nav-for-boards/nav-for-boards.component';
 import { ModalForBoardComponent } from './addingAndEdtingNewBoard/modal-for-board/modal-for-board.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { BackgroundForCollumsComponent } from './backgroundForCollumns/background-for-collums/background-for-collums.component';
 import { AlltheCollumsComponent } from './backgroundForCollumns/background-for-collums/alltheCollums/allthe-collums/allthe-collums.component';
 import { SinglecollumComponent } from './backgroundForCollumns/background-for-collums/alltheCollums/allthe-collums/singleCollum/singlecollum/singlecollum.component';
@@ -38,6 +38,7 @@ const initializeApp = (api: ApicallsService) => {
     ReactiveFormsModule,
     MatDialogModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [
     provideAnimationsAsync('noop'),

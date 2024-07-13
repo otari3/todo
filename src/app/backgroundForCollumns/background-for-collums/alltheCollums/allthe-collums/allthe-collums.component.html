@@ -4,10 +4,10 @@
     [column]="items"
   ></app-singlecollum>
   <section *ngIf="!(columns.length === 3) && columns.length !== 0">
-    <p>+ New collumn</p>
+    <p (click)="onAddNewColumn()">+ New collumn</p>
   </section>
 </div>
 <section class="emptyBoard" *ngIf="columns.length === 0">
   <p>This board is empty. Create a new column to get started.</p>
-  <button>+ Add New Column</button>
+  <button (click)="onAddNewColumn()">+ Add New Column</button>
 </section>

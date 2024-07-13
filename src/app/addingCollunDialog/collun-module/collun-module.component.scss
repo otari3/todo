@@ -1,0 +1,32 @@
+@import "../../../styles/variables.scss";
+main {
+  width: 480px;
+  height: 229px;
+  background-color: #2b2c37;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  select {
+    width: 385px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid $primary-gray;
+    outline: none;
+    color: white;
+    padding-left: 10px;
+    font-size: 17px;
+  }
+  button {
+    width: 174px;
+    height: 48px;
+    background-color: $primary-purple;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    color: white;
+    font-size: $heading-M;
+  }
+}

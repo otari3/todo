@@ -1,1 +1,8 @@
-<p>collun-module works!</p>
+<main>
+  <select name="" id="" [(ngModel)]="optionValue">
+    <option value="{{ items }}" *ngFor="let items of allTheOptions">
+      {{ items }}
+    </option>
+  </select>
+  <button (click)="onAdd()">+ Add New Column</button>
+</main>
