@@ -13,13 +13,14 @@ import { CollunModuleComponent } from '../../../../addingCollunDialog/collun-mod
 export class AlltheCollumsComponent implements OnInit {
   constructor(
     private activtedRouter: ActivatedRoute,
-    private boarderState: BoardStateService
+    private boarderState: BoardStateService,
+    private dialog: MatDialog
   ) {}
   columns!: Column[];
-  readonly dialog = inject(MatDialog);
   onAddNewColumn() {
     this.dialog.open(CollunModuleComponent);
   }
+
   ngOnInit(): void {
     this.activtedRouter.params.subscribe((data: Params) => {
       this.columns =

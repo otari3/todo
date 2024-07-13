@@ -10,13 +10,15 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrl: './modal-for-board.component.scss',
 })
 export class ModalForBoardComponent {
-  constructor(private boardState: BoardStateService) {}
+  constructor(
+    private boardState: BoardStateService,
+    private dialogref: MatDialogRef<ModalForBoardComponent>
+  ) {}
   newColumNames: { name?: string }[] = [];
   removedColums: { index: number; name?: string }[] = [];
   board: FormGroup = new FormGroup({
     name: new FormControl<string>('', Validators.required),
   });
-  readonly dialogref = inject(MatDialogRef<ModalForBoardComponent>);
   onAddNewCollum() {
     if (this.removedColums.length > 0) {
       const lastElement = this.removedColums.pop();
