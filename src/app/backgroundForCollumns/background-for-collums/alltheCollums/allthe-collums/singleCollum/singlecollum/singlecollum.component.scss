@@ -1,10 +1,11 @@
 @import "../../../../../../../styles/variables.scss";
 main {
+  width: 300px;
+  display: flex;
   div {
+    gap: 6px;
     display: flex;
     align-items: center;
-    gap: 5px;
-    justify-content: center;
     p {
       color: $secondary-gray;
     }
@@ -14,5 +15,13 @@ main {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: blue;
+}
+.colorForTodo {
+  background-color: #49c4e5;
+}
+.colorForDoing {
+  background-color: #8470f2;
+}
+.colorForDone {
+  background-color: #67e2af;
 }

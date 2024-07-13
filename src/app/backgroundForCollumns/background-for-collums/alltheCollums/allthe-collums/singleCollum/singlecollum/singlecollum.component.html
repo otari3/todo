@@ -1,6 +1,13 @@
 <main>
   <div>
-    <p class="box"></p>
+    <p
+      class="box"
+      [ngClass]="{
+        colorForTodo: column.name === 'Todo',
+        colorForDoing: column.name === 'Doing',
+        colorForDone: column.name === 'Done'
+      }"
+    ></p>
     <p>{{ column.name }}</p>
     <p>(3)</p>
   </div>
