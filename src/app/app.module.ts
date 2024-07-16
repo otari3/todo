@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApicallsService } from './shared/apicalls.service';
 import { BoardStateService } from './shared/board-state.service';
 import { CollunModuleComponent } from './addingCollunDialog/collun-module/collun-module.component';
+import { TasksComponent } from './tasks/tasks/tasks.component';
+import { FilteringComplitSubtasksPipe } from './shared/filtering-complit-subtasks.pipe';
 
 const initializeApp = (api: ApicallsService) => {
   return () => {
@@ -31,6 +33,8 @@ const initializeApp = (api: ApicallsService) => {
     AlltheCollumsComponent,
     SinglecollumComponent,
     CollunModuleComponent,
+    TasksComponent,
+    FilteringComplitSubtasksPipe,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,8 @@
 main {
   width: 300px;
   display: flex;
+  flex-direction: column;
+  gap: 15px;
   div {
     gap: 6px;
     display: flex;
@@ -24,4 +26,8 @@ main {
 }
 .colorForDone {
   background-color: #67e2af;
+}
+.tasks {
+  display: flex;
+  flex-direction: column;
 }

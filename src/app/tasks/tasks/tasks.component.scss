@@ -1,0 +1,24 @@
+@import "../../../styles/variables.scss";
+main {
+  width: 280px;
+  height: 88px;
+  background-color: #2b2c37;
+  border-radius: 15px;
+  cursor: pointer;
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 10px;
+    h2 {
+      color: white;
+      font-size: $heading-L;
+      padding-left: 10px;
+    }
+    p {
+      padding-left: 10px;
+      font-size: $heading-M;
+      color: $secondary-gray;
+    }
+  }
+}

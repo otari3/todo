@@ -1,7 +1,8 @@
 @import "../../../styles/variables.scss";
+
 main {
   width: 1140px;
-  height: 100vh;
+  height: 100%;
   background-color: $secondary-dark;
   .addTask {
     width: 100%;

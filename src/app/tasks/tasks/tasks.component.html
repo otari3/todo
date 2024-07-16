@@ -1,0 +1,9 @@
+<main>
+  <div>
+    <h2>{{ task.title }}</h2>
+    <p>
+      {{ task | filteringComplitSubtasks }} out of
+      {{ task.subtasks.length }} subtasks
+    </p>
+  </div>
+</main>

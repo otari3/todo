@@ -1,7 +1,10 @@
 @import "../../../styles/variables.scss";
+app-nav-for-boards {
+  background-color: red !important;
+}
 nav {
+  height: 100%;
   width: 300px;
-  height: 100vh;
   background-color: $third-dark;
   border-right: 2px solid #3f4151;
 

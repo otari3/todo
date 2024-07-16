@@ -11,4 +11,7 @@
     <p>{{ column.name }}</p>
     <p>(3)</p>
   </div>
+  <div class="tasks">
+    <app-tasks *ngFor="let items of column.tasks" [task]="items"></app-tasks>
+  </div>
 </main>
