@@ -2,7 +2,13 @@
   <div class="addTask">
     <h1>Platform Launch</h1>
     <div>
-      <button>+ Add New Task</button>
+      <button
+        [disabled]="boardState.corruntLoadedCollumn.length === 0"
+        (click)="onAddTask()"
+        [ngClass]="{ disable: boardState.corruntLoadedCollumn.length === 0 }"
+      >
+        + Add New Task
+      </button>
       <svg width="5" height="20" xmlns="http://www.w3.org/2000/svg">
         <g fill="#828FA3" fill-rule="evenodd">
           <circle cx="2.308" cy="2.308" r="2.308" />

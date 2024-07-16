@@ -8,7 +8,7 @@ import { Board, BoardElement, Column } from './boardInterface';
 export class BoardStateService {
   sendingBoardToElements = new Subject<BoardElement>();
   allSharedBoard: Board = { boards: [] };
-  corruntLoadedCollumn!: Column[];
+  corruntLoadedCollumn: Column[] = [];
   sendingColumn = new Subject<Column>();
   constructor() {}
 }
