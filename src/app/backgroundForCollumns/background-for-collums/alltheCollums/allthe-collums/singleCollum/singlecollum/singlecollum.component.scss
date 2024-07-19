@@ -30,4 +30,6 @@ main {
 .tasks {
   display: flex;
   flex-direction: column;
+  overflow-x: scroll;
+  height: 580px;
 }

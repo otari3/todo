@@ -1,14 +1,16 @@
 @import "../../../styles/variables.scss";
 main {
   width: 280px;
-  height: 88px;
+  height: auto;
   background-color: #2b2c37;
   border-radius: 15px;
   cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
   div {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     padding-top: 10px;
     h2 {
       color: white;

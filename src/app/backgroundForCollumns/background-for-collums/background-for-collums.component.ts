@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { BoardStateService } from '../../shared/board-state.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { BoardStateService } from '../../shared/board-state.service';
   styleUrl: './background-for-collums.component.scss',
 })
 export class BackgroundForCollumsComponent {
+  constructor(private cd: ChangeDetectorRef) {}
   boardState = inject(BoardStateService);
   onAddTask() {
     console.log('hello');
