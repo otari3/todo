@@ -3,6 +3,7 @@ export interface Board {
 }
 
 export interface BoardElement {
+  _id: string;
   name: string;
   columns: Column[];
 }

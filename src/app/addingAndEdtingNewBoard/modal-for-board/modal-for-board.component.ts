@@ -3,6 +3,7 @@ import { BoardElement, Column } from '../../shared/boardInterface';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BoardStateService } from '../../shared/board-state.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import ObjectID from 'bson-objectid';
 
 @Component({
   selector: 'app-modal-for-board',
@@ -42,6 +43,7 @@ export class ModalForBoardComponent {
   }
   onCreatNewBoard() {
     const board: BoardElement = {
+      _id: this.generetObjectId(),
       name: this.board.get('name')?.value,
       columns: [],
     };
@@ -52,5 +54,8 @@ export class ModalForBoardComponent {
     }
     this.boardState.sendingBoardToElements.next(board);
     this.dialogref.close();
+  }
+  generetObjectId(): string {
+    return new ObjectID().toHexString();
   }
 }
