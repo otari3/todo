@@ -26,6 +26,7 @@ export class AlltheCollumsComponent implements OnInit {
       this.columns =
         this.boarderState.allSharedBoard.boards[Number(data['id'])].columns;
       this.boarderState.corruntLoadedCollumn = this.columns;
+      this.boarderState.gettingLengthOfColumn.next(this.columns.length);
     });
     this.boarderState.sendingColumn.subscribe((col) => {
       this.columns.push(col);

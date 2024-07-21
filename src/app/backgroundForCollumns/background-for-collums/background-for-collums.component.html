@@ -3,9 +3,9 @@
     <h1>Platform Launch</h1>
     <div>
       <button
-        [disabled]="boardState.corruntLoadedCollumn.length === 0"
+        [disabled]="lengthOfColumn === 0"
         (click)="onAddTask()"
-        [ngClass]="{ disable: boardState.corruntLoadedCollumn.length === 0 }"
+        [ngClass]="{ disable: lengthOfColumn === 0 }"
       >
         + Add New Task
       </button>

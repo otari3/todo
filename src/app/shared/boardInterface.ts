@@ -16,7 +16,7 @@ export interface Column {
 export interface Task {
   title: string;
   description: string;
-  status: Status;
+  status: string;
   subtasks: Subtask[];
 }
 

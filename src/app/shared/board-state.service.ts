@@ -10,5 +10,6 @@ export class BoardStateService {
   allSharedBoard: Board = { boards: [] };
   corruntLoadedCollumn: Column[] = [];
   sendingColumn = new Subject<Column>();
+  gettingLengthOfColumn = new Subject<number>()
   constructor() {}
 }

@@ -17,6 +17,7 @@ import { BoardStateService } from './shared/board-state.service';
 import { CollunModuleComponent } from './addingCollunDialog/collun-module/collun-module.component';
 import { TasksComponent } from './tasks/tasks/tasks.component';
 import { FilteringComplitSubtasksPipe } from './shared/filtering-complit-subtasks.pipe';
+import { ModulForAddingTasksComponent } from './modulForAddinTasks/modul-for-adding-tasks/modul-for-adding-tasks.component';
 
 const initializeApp = (api: ApicallsService) => {
   return () => {
@@ -35,6 +36,7 @@ const initializeApp = (api: ApicallsService) => {
     CollunModuleComponent,
     TasksComponent,
     FilteringComplitSubtasksPipe,
+    ModulForAddingTasksComponent,
   ],
   imports: [
     BrowserModule,

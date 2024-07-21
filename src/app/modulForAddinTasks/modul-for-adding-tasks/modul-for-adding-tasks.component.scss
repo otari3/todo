@@ -1,0 +1,98 @@
+@import "../../../styles/variables.scss";
+* {
+  color: white;
+}
+form {
+  height: auto;
+  width: 480px;
+  background-color: $third-dark;
+  margin-top: 20px;
+  border-radius: 10px;
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    .title {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      h1 {
+        padding-top: 25px;
+        font-size: $heading-L;
+      }
+      input {
+        width: 416px;
+        height: 40px;
+        background-color: transparent;
+        padding-left: 15px;
+        outline: none;
+        border: 1px solid gray;
+      }
+    }
+    .description {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      textarea {
+        width: 416px;
+        height: 112px;
+        background-color: transparent;
+        padding-left: 15px;
+        outline: none;
+        border: 1px solid gray;
+      }
+    }
+  }
+}
+.subtasks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  div {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    input {
+      width: 385px;
+      height: 40px;
+      background-color: transparent;
+      border: 1px solid gray;
+      outline: none;
+      padding-left: 15px;
+    }
+    svg {
+      cursor: pointer;
+    }
+  }
+  button {
+    height: 40px;
+    color: $primary-purple;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bolder;
+  }
+}
+.status {
+  display: flex;
+  flex-direction: column;
+  width: 416px;
+  gap: 10px;
+  select {
+    background-color: transparent;
+    height: 40px;
+    padding-left: 15px;
+  }
+}
+.creatTask {
+  width: 416px;
+  border-radius: 30px;
+  height: 40px;
+  border: none;
+  background-color: $primary-purple;
+  font-weight: bolder;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
