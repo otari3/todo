@@ -14,9 +14,10 @@ export interface Column {
 }
 
 export interface Task {
-  title: string;
-  description: string;
-  status: string;
+  _id: string | null | undefined;
+  title: string | null | undefined;
+  description: string | null | undefined;
+  status: string | null | undefined;
   subtasks: Subtask[];
 }
 

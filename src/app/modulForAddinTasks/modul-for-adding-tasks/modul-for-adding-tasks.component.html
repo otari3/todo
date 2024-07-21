@@ -1,4 +1,4 @@
-<form [formGroup]="task">
+<form [formGroup]="task" (ngSubmit)="onCreatTask()">
   <main>
     <div class="title">
       <h1>Add New Task</h1>
@@ -39,17 +39,19 @@
             </g>
           </svg>
         </div>
-        <button (click)="onAddNewSubTask()">+ Add New Task</button>
+        <button (click)="onAddNewSubTask()" type="button">
+          + Add New Task
+        </button>
       </div>
     </div>
     <div class="status">
       <label for="">status</label>
       <select name="" id="" formControlName="status">
-        <option>Todo</option>
-        <option>Doing</option>
-        <option>Done</option>
+        <option value="{{ items }}" *ngFor="let items of names">
+          {{ items }}
+        </option>
       </select>
     </div>
-    <button class="creatTask">Creat Task</button>
+    <button class="creatTask" type="submit">Creat Task</button>
   </main>
 </form>
