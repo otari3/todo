@@ -31,7 +31,6 @@ export class NavForBoardsComponent implements OnInit {
   }
   ngOnInit(): void {
     this.boardState.sendingBoardToElements.subscribe((board: BoardElement) => {
-      console.log(board);
       this.allBoards.boards.push(board);
     });
   }

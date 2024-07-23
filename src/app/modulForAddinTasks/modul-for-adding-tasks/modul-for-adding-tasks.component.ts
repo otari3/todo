@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import ObjectID from 'bson-objectid';
 import { BoardStateService } from '../../shared/board-state.service';
 import { Task } from '../../shared/boardInterface';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Subscription, pairwise } from 'rxjs';
 
 @Component({
   selector: 'app-modul-for-adding-tasks',
@@ -16,6 +17,7 @@ export class ModulForAddingTasksComponent implements OnInit {
     private matRef: MatDialogRef<ModulForAddingTasksComponent>
   ) {}
   names: any = [];
+  taskSending!: Subscription;
   task = new FormGroup({
     _id: new FormControl<string>(new ObjectID().toHexString()),
     title: new FormControl<string>(''),
