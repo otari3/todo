@@ -12,5 +12,16 @@ export class BoardStateService {
   sendingColumn = new Subject<Column>();
   gettingLengthOfColumn = new Subject<number>();
   sendingTasks = new Subject<Task>();
+  sendingEditTask = new Subject<Task>();
+  gettingUpdatedTask = new Subject<
+    [
+      {
+        status: Task['status'];
+        isChanged: boolean;
+        _id: Task['_id'];
+      },
+      Task
+    ]
+  >();
   constructor() {}
 }

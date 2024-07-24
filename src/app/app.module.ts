@@ -17,6 +17,7 @@ import { BoardStateService } from './shared/board-state.service';
 import { CollunModuleComponent } from './addingCollunDialog/collun-module/collun-module.component';
 import { TasksComponent } from './tasks/tasks/tasks.component';
 import { FilteringComplitSubtasksPipe } from './shared/filtering-complit-subtasks.pipe';
+import { MatMenuModule } from '@angular/material/menu';
 import { ModulForAddingTasksComponent } from './modulForAddinTasks/modul-for-adding-tasks/modul-for-adding-tasks.component';
 
 const initializeApp = (api: ApicallsService) => {
@@ -45,6 +46,7 @@ const initializeApp = (api: ApicallsService) => {
     MatDialogModule,
     HttpClientModule,
     FormsModule,
+    MatMenuModule,
   ],
   providers: [
     provideAnimationsAsync('noop'),

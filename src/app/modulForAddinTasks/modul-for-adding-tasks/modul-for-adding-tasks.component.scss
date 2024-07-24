@@ -3,15 +3,14 @@
   color: white;
 }
 form {
+  margin-top: 20px;
   height: auto;
   width: 480px;
-  background-color: $third-dark;
-  margin-top: 20px;
-  border-radius: 10px;
   main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: $third-dark;
     gap: 10px;
     .title {
       display: flex;

@@ -11,13 +11,23 @@ import { Subscription, pairwise } from 'rxjs';
   templateUrl: './modul-for-adding-tasks.component.html',
   styleUrl: './modul-for-adding-tasks.component.scss',
 })
-export class ModulForAddingTasksComponent implements OnInit {
+export class ModulForAddingTasksComponent implements OnInit, OnDestroy {
   constructor(
     private boartState: BoardStateService,
     private matRef: MatDialogRef<ModulForAddingTasksComponent>
   ) {}
   names: any = [];
-  taskSending!: Subscription;
+  ifStatusChanged: {
+    status: Task['status'];
+    isChanged: boolean;
+    _id: Task['_id'];
+  } = {
+    status: '',
+    isChanged: false,
+    _id: '',
+  };
+  taskGetting!: Subscription;
+  editMode = false;
   task = new FormGroup({
     _id: new FormControl<string>(new ObjectID().toHexString()),
     title: new FormControl<string>(''),
@@ -50,7 +60,7 @@ export class ModulForAddingTasksComponent implements OnInit {
       this.subTask.removeAt(index);
     }
   }
-  onCreatTask() {
+  get creatTask() {
     const task: Task = {
       _id: this.task.get('_id')?.value,
       title: this.task.get('title')?.value,
@@ -58,15 +68,64 @@ export class ModulForAddingTasksComponent implements OnInit {
       status: this.task.get('status')?.value,
       subtasks: this.subTask.value,
     };
-    this.boartState.sendingTasks.next(task);
+    return task;
+  }
+  onCreatTask() {
+    if (!this.editMode) {
+      this.boartState.sendingTasks.next(this.creatTask);
+    } else {
+      this.boartState.gettingUpdatedTask.next([
+        this.ifStatusChanged,
+        this.creatTask,
+      ]);
+    }
     this.matRef.close();
   }
-  ngOnInit(): void {
+  collumnNameUpdates() {
     for (let items of this.boartState.corruntLoadedCollumn) {
       this.names.push(items.name);
     }
     this.task.patchValue({
       status: this.names[0],
     });
+  }
+  listeningToStatusChange() {
+    this.task.controls.status.valueChanges.subscribe((s) => {
+      if (s !== this.ifStatusChanged.status) {
+        this.ifStatusChanged.isChanged = true;
+      } else {
+        this.ifStatusChanged.isChanged = false;
+      }
+    });
+  }
+  addingSubTasks(ts: Task) {
+    for (let i = 2; i < ts.subtasks.length; i++) {
+      this.subTask.push(
+        new FormGroup({
+          title: new FormControl<string>(ts.subtasks[i].title),
+          isCompleted: new FormControl<boolean>(ts.subtasks[i].isCompleted),
+        })
+      );
+    }
+  }
+  ngOnInit(): void {
+    this.taskGetting = this.boartState.sendingEditTask.subscribe((t: Task) => {
+      this.editMode = true;
+      this.ifStatusChanged.status = t.status;
+      this.ifStatusChanged._id = t._id;
+      this.task.patchValue({
+        _id: t._id,
+        title: t.title,
+        description: t.description,
+        subtasks: t.subtasks,
+        status: t.status,
+      });
+      this.addingSubTasks(t);
+      this.listeningToStatusChange();
+    });
+    this.collumnNameUpdates();
+  }
+  ngOnDestroy(): void {
+    this.taskGetting.unsubscribe();
   }
 }

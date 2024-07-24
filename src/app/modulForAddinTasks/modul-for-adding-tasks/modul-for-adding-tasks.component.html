@@ -52,6 +52,8 @@
         </option>
       </select>
     </div>
-    <button class="creatTask" type="submit">Creat Task</button>
+    <button class="creatTask" type="submit">
+      {{ !editMode ? "Creat Task" : "Edit Task" }}
+    </button>
   </main>
 </form>

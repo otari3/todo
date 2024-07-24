@@ -5,5 +5,22 @@
       {{ task | filteringComplitSubtasks }} out of
       {{ task.subtasks.length }} subtasks
     </p>
+    <svg
+      width="5"
+      height="20"
+      xmlns="http://www.w3.org/2000/svg"
+      mat-button
+      [matMenuTriggerFor]="menu"
+    >
+      <g fill="#828FA3" fill-rule="evenodd">
+        <circle cx="2.308" cy="2.308" r="2.308" />
+        <circle cx="2.308" cy="10" r="2.308" />
+        <circle cx="2.308" cy="17.692" r="2.308" />
+      </g>
+    </svg>
+    <mat-menu #menu="matMenu" class="customize">
+      <button mat-menu-item (click)="onEdit()">Edit</button>
+      <button mat-menu-item>Delete</button>
+    </mat-menu>
   </div>
 </main>
