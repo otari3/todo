@@ -43,7 +43,7 @@
         + Add New Column
       </button>
       <button class="newCollumn" type="submit" id="creatNewBoard">
-        Create New Board
+        {{ !boardIsInEdit ? "Create New Board" : "Edit Board" }}
       </button>
     </div>
   </form>

@@ -33,5 +33,11 @@ export class NavForBoardsComponent implements OnInit {
     this.boardState.sendingBoardToElements.subscribe((board: BoardElement) => {
       this.allBoards.boards.push(board);
     });
+    this.boardState.finishedBoardEdit.subscribe((newBoard) => {
+      let index = this.allBoards.boards.findIndex((i) => {
+        return i._id === newBoard._id;
+      });
+      this.allBoards.boards[index] = newBoard;
+    });
   }
 }

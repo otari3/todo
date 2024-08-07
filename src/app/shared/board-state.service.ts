@@ -6,13 +6,16 @@ import { Board, BoardElement, Column, Task } from './boardInterface';
   providedIn: 'root',
 })
 export class BoardStateService {
+  currentlyLoadBoard!: BoardElement;
   sendingBoardToElements = new Subject<BoardElement>();
+  boardEdit = new Subject<BoardElement>();
   allSharedBoard: Board = { boards: [] };
   corruntLoadedCollumn: Column[] = [];
   sendingColumn = new Subject<Column>();
   gettingLengthOfColumn = new Subject<number>();
   sendingTasks = new Subject<Task>();
   sendingEditTask = new Subject<Task>();
+  finishedBoardEdit = new Subject<BoardElement>();
   gettingUpdatedTask = new Subject<
     [
       {

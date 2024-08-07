@@ -27,9 +27,15 @@ export class AlltheCollumsComponent implements OnInit {
         this.boarderState.allSharedBoard.boards[Number(data['id'])].columns;
       this.boarderState.corruntLoadedCollumn = this.columns;
       this.boarderState.gettingLengthOfColumn.next(this.columns.length);
+      this.boarderState.currentlyLoadBoard =
+        this.boarderState.allSharedBoard.boards[Number(data['id'])];
     });
     this.boarderState.sendingColumn.subscribe((col) => {
       this.columns.push(col);
+    });
+    this.boarderState.finishedBoardEdit.subscribe((newBoard) => {
+      this.columns = newBoard.columns;
+      this.boarderState.corruntLoadedCollumn = newBoard.columns;
     });
   }
 }
