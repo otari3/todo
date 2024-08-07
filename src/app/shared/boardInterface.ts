@@ -3,8 +3,8 @@ export interface Board {
 }
 
 export interface BoardElement {
-  _id: string;
-  name: string;
+  _id: string | null | undefined;
+  name: string | null | undefined;
   columns: Column[];
 }
 

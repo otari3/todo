@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { BoardElement, Column } from '../../shared/boardInterface';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BoardElement, Column, Task } from '../../shared/boardInterface';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BoardStateService } from '../../shared/board-state.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import ObjectID from 'bson-objectid';
@@ -17,42 +17,42 @@ export class ModalForBoardComponent {
   ) {}
   newColumNames: { name?: string }[] = [];
   removedColums: { index: number; name?: string }[] = [];
-  board: FormGroup = new FormGroup({
+  board = new FormGroup({
+    _id: new FormControl<string>(new ObjectID().toHexString()),
     name: new FormControl<string>('', Validators.required),
+    columns: new FormArray<any>([
+      new FormGroup({
+        name: new FormControl<string>('', Validators.required),
+        tasks: new FormControl<Task[]>([]),
+      }),
+    ]),
   });
+  get columns() {
+    return this.board.get('columns') as FormArray;
+  }
   onAddNewCollum() {
-    if (this.removedColums.length > 0) {
-      const lastElement = this.removedColums.pop();
-      this.newColumNames[lastElement!.index].name = lastElement?.name;
-    } else if (this.newColumNames.length != 3) {
-      const newName =
-        this.newColumNames.length === 0
-          ? 'Todo'
-          : this.newColumNames.length === 1
-          ? 'Doing'
-          : 'Done';
-      this.newColumNames.push({ name: newName });
+    if (this.columns.length != 3) {
+      this.columns.push(
+        new FormGroup({
+          name: new FormControl<string>('', Validators.required),
+          tasks: new FormControl<Task[]>([]),
+        })
+      );
     }
+  }
+  get boardElement() {
+    const Board: any = {
+      _id: this.board.get('_id')?.value,
+      name: this.board.get('name')?.value,
+      columns: this.board.get('columns')?.value,
+    };
+    return Board;
   }
   removeingCollum(index: number) {
-    this.removedColums.push({
-      index: index,
-      name: this.newColumNames[index].name,
-    });
-    this.newColumNames[index].name = '';
+    this.columns.removeAt(index);
   }
   onCreatNewBoard() {
-    const board: BoardElement = {
-      _id: this.generetObjectId(),
-      name: this.board.get('name')?.value,
-      columns: [],
-    };
-    for (let items of this.newColumNames) {
-      if (items.name !== '') {
-        board.columns.push({ name: items.name, tasks: [] });
-      }
-    }
-    this.boardState.sendingBoardToElements.next(board);
+    this.boardState.sendingBoardToElements.next(this.boardElement);
     this.dialogref.close();
   }
   generetObjectId(): string {

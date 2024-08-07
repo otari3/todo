@@ -14,9 +14,15 @@
       <div class="inputDivs">
         <h2>Board Colums</h2>
         <ul>
-          <ng-container *ngFor="let items of newColumNames; let i = index">
-            <li *ngIf="!(items.name === '')">
-              <p>{{ items.name }}</p>
+          <ng-container formArrayName="columns">
+            <li
+              *ngFor="
+                let items of board.controls.columns.controls;
+                let i = index
+              "
+              formGroupName="{{ i }}"
+            >
+              <input type="text" formControlName="name" />
               <svg
                 width="15"
                 height="15"
